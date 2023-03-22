@@ -82,35 +82,32 @@ const yogaPoses = {
         { name: "Plow Pose", image: "static/img/plow_pose.jpg" },
         { name: "Corpse Pose", image: "static/img/corpse_pose.jpg" },
     ],
-
+    //add more workouts as needed and update index.html
 };
 
-const timerElement = document.getElementById('time');
-const yogaImage = document.getElementById('yoga-image');
-const workoutSelect = document.getElementById('workout-select');
-const startButton = document.getElementById('start-button');
+const startPauseButton = document.getElementById('start-button');
 
 let currentPose = 0;
 let timer;
+let timerRunning = false;
 
-function startTimer(duration, display) {
-    let time = duration;
-    timer = setInterval(() => {
-        let minutes = parseInt(time / 60, 10);
-        let seconds = parseInt(time % 60, 10);
+// startTimer, pauseTimer functions remain unchanged
 
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-
-        display.textContent = minutes + ':' + seconds;
-
-        if (--time < 0) {
-            clearInterval(timer);
-            setTimeout(() => {
-                nextPose();
-            }, 10000); // 10-second interval for transitions
+function startPause() {
+    if (!timerRunning) {
+        if (currentPose === -1) {
+            nextPose();
+            startTimer(60, timerElement);
+        } else {
+            let timeLeft = timerElement.textContent.split(':').reduce((acc, val, i) => acc * 60 + parseInt(val, 10));
+            startTimer(timeLeft, timerElement);
         }
-    }, 1000);
+        timerRunning = true;
+        startPauseButton.textContent = 'Pause';
+    } else {
+        pauseTimer();
+        startPauseButton.textContent = 'Resume';
+    }
 }
 
 function nextPose() {
@@ -124,11 +121,6 @@ function nextPose() {
     }
     yogaImage.src = poses[currentPose].image;
     yogaImage.alt = poses[currentPose].name;
-    startTimer(60, timerElement); // Change to the desired duration in seconds for each pose
 }
 
-startButton.addEventListener('click', () => {
-    clearInterval(timer);
-    currentPose = -1; // Set to -1 to start with the first pose when the button is clicked
-    nextPose();
-});
+startPauseButton.addEventListener('click', startPause);
