@@ -36,6 +36,7 @@
     <Folder Include="Yogatastic\static\" />
     <Folder Include="Yogatastic\static\content\" />
     <Folder Include="Yogatastic\static\fonts\" />
+    <Folder Include="Yogatastic\static\img\" />
     <Folder Include="Yogatastic\static\scripts\" />
     <Folder Include="Yogatastic\templates\" />
   </ItemGroup>
@@ -48,6 +49,8 @@
     <Content Include="Yogatastic\static\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Yogatastic\static\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Yogatastic\static\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Yogatastic\static\img\childs_pose.jpg" />
+    <Content Include="Yogatastic\static\img\mountain.jpg" />
     <Content Include="Yogatastic\static\scripts\bootstrap.js" />
     <Content Include="Yogatastic\static\scripts\bootstrap.min.js" />
     <Content Include="Yogatastic\static\scripts\scripts.js" />

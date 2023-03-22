@@ -10,11 +10,19 @@
 <body>
     <h1>Yoga Routine</h1>
     <div class="yoga-container">
-        <img src="{{ url_for('static', filename='img/pose1.jpg') }}" alt="Yoga pose" id="yoga-image">
+        <img id="yoga-image" src="{{ url_for('static', filename='img/childs_pose.jpg') }}" alt="Child's Pose" />
         <div class="timer">
             <span id="time">00:00</span>
         </div>
     </div>
+    <select id="workout-select">
+        <option value="workout1">Workout 1</option>
+        <option value="workout2">Workout 2</option>
+        <option value="workout3">Workout 3</option>
+        <option value="workout4">Workout 4</option>
+        <option value="workout5">Workout 5</option>
+        <!-- Add more workouts as needed -->
+    </select>
     <button id="start-button">Start</button>
 </body>
 </html>
