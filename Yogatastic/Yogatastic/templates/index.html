@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Routine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='content/site.css') }}">
+    <script src="{{ url_for('static', filename='scripts/scripts.js') }}" defer></script>
+</head>
+<body>
+    <h1>Yoga Routine</h1>
+    <div class="yoga-container">
+        <img src="{{ url_for('static', filename='img/pose1.jpg') }}" alt="Yoga pose" id="yoga-image">
+        <div class="timer">
+            <span id="time">00:00</span>
+        </div>
+    </div>
+    <button id="start-button">Start</button>
+</body>
+</html>

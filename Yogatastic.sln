@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Yogatastic", "Yogatastic\Yogatastic.pyproj", "{6E3EAB7B-8192-4174-9883-9F30E37F0E2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E3EAB7B-8192-4174-9883-9F30E37F0E2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E3EAB7B-8192-4174-9883-9F30E37F0E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E3EAB7B-8192-4174-9883-9F30E37F0E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E3EAB7B-8192-4174-9883-9F30E37F0E2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B506B9F6-32E6-4B53-8E9A-4C725F26F27E}
+	EndGlobalSection
+EndGlobal
