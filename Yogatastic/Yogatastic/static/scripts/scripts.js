@@ -96,30 +96,26 @@ let timer;
 let timerRunning = false;
 
 function startTimer(duration, display) {
-    let start = Date.now(),
-        diff,
-        minutes,
-        seconds;
-    if (timer) clearInterval(timer);
-    timer = setInterval(function () {
-        diff = duration - (((Date.now() - start) / 1000) | 0);
+    let minutes, seconds;
+    duration--;
 
-        minutes = (diff / 60) | 0;
-        seconds = (diff % 60) | 0;
+    timer = setInterval(() => {
+        minutes = parseInt(duration / 60, 10);
+        seconds = parseInt(duration % 60, 10);
 
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display.textContent = minutes + ':' + seconds;
+        display.textContent = minutes + ":" + seconds;
 
-        if (diff <= 0) {
+        if (--duration < 0) {
             clearInterval(timer);
-            if (currentPose !== -1) {
-                setTimeout(() => {
-                    nextPose();
-                    startTimer(60, timerElement);
-                }, 10000);
-            }
+            nextPose();
+
+            // Wait for 10 seconds before starting the timer again
+            setTimeout(() => {
+                startTimer(60, display);
+            }, 10000);
         }
     }, 1000);
 }
