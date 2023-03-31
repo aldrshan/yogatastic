@@ -85,13 +85,49 @@ const yogaPoses = {
     //add more workouts as needed and update index.html
 };
 
-const startPauseButton = document.getElementById('start-button');
 
-let currentPose = 0;
+const startPauseButton = document.getElementById('start-button');
+const workoutSelect = document.getElementById('workout-select');
+const timerElement = document.getElementById('time');
+const yogaImage = document.getElementById('yoga-image');
+
+let currentPose = -1;
 let timer;
 let timerRunning = false;
 
-// startTimer, pauseTimer functions remain unchanged
+function startTimer(duration, display) {
+    let start = Date.now(),
+        diff,
+        minutes,
+        seconds;
+    if (timer) clearInterval(timer);
+    timer = setInterval(function () {
+        diff = duration - (((Date.now() - start) / 1000) | 0);
+
+        minutes = (diff / 60) | 0;
+        seconds = (diff % 60) | 0;
+
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        display.textContent = minutes + ':' + seconds;
+
+        if (diff <= 0) {
+            clearInterval(timer);
+            if (currentPose !== -1) {
+                setTimeout(() => {
+                    nextPose();
+                    startTimer(60, timerElement);
+                }, 10000);
+            }
+        }
+    }, 1000);
+}
+
+function pauseTimer() {
+    clearInterval(timer);
+    timerRunning = false;
+}
 
 function startPause() {
     if (!timerRunning) {
@@ -112,7 +148,7 @@ function startPause() {
 
 function nextPose() {
     const selectedWorkout = workoutSelect.value;
-    const poses = yogaPoses[selectedWorkout];
+    const poses = yogaPoses['day' + selectedWorkout.slice(-1)];
 
     if (currentPose < poses.length - 1) {
         currentPose++;
@@ -121,6 +157,14 @@ function nextPose() {
     }
     yogaImage.src = poses[currentPose].image;
     yogaImage.alt = poses[currentPose].name;
+    if (!timerRunning) {
+        timerElement.textContent = "01:00";
+    }
 }
+
+workoutSelect.addEventListener('change', () => {
+    currentPose = -1;
+    nextPose();
+});
 
 startPauseButton.addEventListener('click', startPause);
