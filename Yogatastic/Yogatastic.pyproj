@@ -37,6 +37,7 @@
     <Folder Include="Yogatastic\static\" />
     <Folder Include="Yogatastic\static\content\" />
     <Folder Include="Yogatastic\static\fonts\" />
+    <Folder Include="Yogatastic\static\mp3\" />
     <Folder Include="Yogatastic\static\img\" />
     <Folder Include="Yogatastic\static\scripts\" />
     <Folder Include="Yogatastic\templates\" />
@@ -73,6 +74,7 @@
     <Content Include="Yogatastic\static\img\low_lunge.jpg" />
     <Content Include="Yogatastic\static\img\low_plank.jpg" />
     <Content Include="Yogatastic\static\img\mountain.jpg" />
+    <Content Include="Yogatastic\static\mp3\gong.mp3" />
     <Content Include="Yogatastic\static\scripts\bootstrap.js" />
     <Content Include="Yogatastic\static\scripts\bootstrap.min.js" />
     <Content Include="Yogatastic\static\scripts\scripts.js" />

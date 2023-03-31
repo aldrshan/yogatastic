@@ -95,6 +95,21 @@ let currentPose = -1;
 let timer;
 let timerRunning = false;
 
+// 1. Add a new variable to hold the audio element reference
+let gong;
+
+// 2. Create an Audio object and set its src to the path of the audio file
+function loadAudio() {
+    gong = new Audio("static/mp3/gong.mp3");
+}
+loadAudio();
+
+// 3. Add a new function, playTone(), to play the audio
+function playTone() {
+    gong.currentTime = 0;
+    gong.play();
+}
+
 function startTimer(duration, display) {
     let minutes, seconds;
     duration--;
@@ -112,12 +127,15 @@ function startTimer(duration, display) {
             clearInterval(timer);
             nextPose();
 
+            // 4. Call playTone() function each time the pose changes
+            playTone();
+
             // Wait for 10 seconds before starting the timer again
             setTimeout(() => {
                 startTimer(60, display);
             }, 10000);
         }
-    }, 1000);
+    }, 1000); // <-- Add the closing parenthesis here
 }
 
 function pauseTimer() {
