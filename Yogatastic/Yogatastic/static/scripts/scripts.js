@@ -172,6 +172,7 @@ function nextPose() {
     }
     yogaImage.src = poses[currentPose].image;
     yogaImage.alt = poses[currentPose].name;
+    document.getElementById('pose-title').textContent = poses[currentPose].name;
     if (!timerRunning) {
         timerElement.textContent = "01:00";
     }
