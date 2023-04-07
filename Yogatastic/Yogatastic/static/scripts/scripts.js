@@ -128,7 +128,7 @@ function startTimer(duration, display) {
             clearInterval(timer);
             nextPose();
 
-            // 4. Call playTone() function each time the pose changes
+            // 4. Call playTone() function each time the pose changes.
             playTone();
 
             // Wait for 10 seconds before starting the timer again
